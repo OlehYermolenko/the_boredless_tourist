@@ -54,3 +54,28 @@ add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
 add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
+
+# Function which matches traveler's interests with possible locations in the city
+def find_attractions(destination, interests):
+    # City's destination_index to look up its attractions in attractions table
+    destination_index = get_destination_index(destination)
+    attractions_in_city = attractions[destination_index]
+    # If the attraction match one of the interests attraction is will be saved to list
+    attractions_with_interest = []
+
+    # Retrieve tagged information for each attraction
+    for attraction in attractions_in_city:
+        possible_attraction = attraction
+        attraction_tags = attraction[1]
+
+        # See if any of the given interests is in attraction_tags
+        for interest in interests:
+            if interest in attraction_tags:
+                # Append only the nme of each attraction in order not to show tags
+                attractions_with_interest.append(possible_attraction[0])
+
+    return attractions_with_interest
+
+# Test function
+# la_arts = find_attractions('Los Angeles, USA', ['art'])
+# print(la_arts)

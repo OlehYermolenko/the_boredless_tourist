@@ -1,3 +1,7 @@
+# script.py
+"""Recommendation engine using Python. Evaluate what a person’s interests are and then give them recommendations
+in their area to venues, restaurants, and historical destinations."""
+
 # Create list with destinations
 destinations = ['Paris, France', 'Shanghai, China', 'Los Angeles, USA', 'São Paulo, Brazil', 'Cairo, Egypt']
 
